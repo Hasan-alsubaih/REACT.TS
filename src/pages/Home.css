@@ -1,0 +1,12 @@
+/* Home.css */
+
+html,
+body.carousel {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.carousel-item img {
+  max-height: 100%;
+  object-fit: cover;
+}
