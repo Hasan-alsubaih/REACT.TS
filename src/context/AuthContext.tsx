@@ -46,7 +46,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     setError(null);
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {})
-      .catch((err) => {
+      .catch(() => {
         setError("Login failed. Please check your email and password.");
       })
       .finally(() => {
@@ -72,9 +72,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     setError(null);
     createUserWithEmailAndPassword(auth, email, password)
       .then(() => {})
-      .catch((err) => {
-        setError(err.message);
-        // setError('Registration failed. Please try again.');''
+      .catch((error) => {  
+        setError(error.message);
       })
       .finally(() => {
         setIsLoading(false);

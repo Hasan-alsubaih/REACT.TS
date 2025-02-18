@@ -69,7 +69,6 @@ const CountryDetails: React.FC = () => {
         className="justify-content-center align-items-start"
         style={{ paddingTop: "120px" }}
       >
-        {/* Flag on the left */}
         <Col md={4} className="d-flex justify-content-center align-items-start">
           <img
             src={country?.flags.png}
@@ -78,8 +77,6 @@ const CountryDetails: React.FC = () => {
             style={{ width: "250px", height: "250px", objectFit: "cover" }}
           />
         </Col>
-
-        {/* Country Info on the right */}
         <Col md={6} className="d-flex justify-content-center align-items-start">
           <Card
             className="shadow-lg rounded-4 p-4 w-100"
