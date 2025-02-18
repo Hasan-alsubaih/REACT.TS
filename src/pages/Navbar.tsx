@@ -1,106 +1,76 @@
-
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { Navbar, Nav, Container, Button } from "react-bootstrap";
 
-const Navbar: React.FC = () => {
+const CustomNavbar: React.FC = () => {
   const { user, logout } = useAuth();
 
   return (
-    <nav
-      style={{
-        padding: "1rem",
-        position: "absolute",
-        width: "100%",
-        top: 0,
-        left: 0,
-        zIndex: 1000,
-        color: "red",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-      }}
-    >
-      <div style={{ fontSize: "1.5rem", fontWeight: "bold", letterSpacing: "1px" }}>
-        🌍
-      </div>
+    <Navbar expand="lg" variant="dark" bg="transparent" fixed="top">
+      <Container
+        fluid
+        className="d-flex justify-content-between align-items-center"
+      >
+        <Navbar.Brand
+          href="/"
+          style={{
+            fontSize: "1.5rem",
+            fontWeight: "bold",
+            letterSpacing: "1px",
+          }}
+        >
+          🌍
+        </Navbar.Brand>
 
-      <ul style={{ listStyleType: "none", display: "flex", gap: "1.5rem", margin: 0, padding: 0 }}>
-        <li>
-          <NavLink
-            to="/"
-            style={{
-              color: "black", // اللون أسود
-              textDecoration: "none",
-              fontWeight: "900", // خط أثخن
-              textTransform: "uppercase",
-            }}
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav
+            className="ms-auto d-flex align-items-center"
+            style={{ gap: "1rem", fontSize: "1.2rem", fontWeight: "bold" }}
           >
-            Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/countries"
-            style={{
-              color: "black",
-              textDecoration: "none",
-              fontWeight: "900",
-              textTransform: "uppercase",
-            }}
-          >
-            Countries
-          </NavLink>
-        </li>
-        {!user ? (
-          <>
-            <li>
-              <NavLink
-                to="/login"
-                style={{
-                  color: "black",
-                  textDecoration: "none",
-                  fontWeight: "900",
-                  textTransform: "uppercase",
-                }}
-              >
-                Login
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/signup"
-                style={{
-                  color: "black",
-                  textDecoration: "none",
-                  fontWeight: "900",
-                  textTransform: "uppercase",
-                }}
-              >
-                Sign Up
-              </NavLink>
-            </li>
-          </>
-        ) : (
-          <li>
-            <button
-              onClick={logout}
-              style={{
-                background: "red",
-                color: "white",
-                border: "none",
-                padding: "8px 12px",
-                cursor: "pointer",
-                textTransform: "uppercase",
-              }}
+            <NavLink className="nav-link" to="/" style={{ color: "black" }}>
+              Home
+            </NavLink>
+            <NavLink
+              className="nav-link"
+              to="/countries"
+              style={{ color: "black" }}
             >
-              Logout
-            </button>
-          </li>
-        )}
-      </ul>
-    </nav>
+              Countries
+            </NavLink>
+            {!user ? (
+              <>
+                <NavLink
+                  className="nav-link"
+                  to="/login"
+                  style={{ color: "black" }}
+                >
+                  Login
+                </NavLink>
+                <NavLink
+                  className="nav-link"
+                  to="/signup"
+                  style={{ color: "black" }}
+                >
+                  Sign Up
+                </NavLink>
+              </>
+            ) : (
+              <Button
+                variant="outline-dark"
+                onClick={logout}
+                className="nav-link"
+                style={{ border: "none", color: "black" }}
+              >
+                Logout
+              </Button>
+            )}
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
 
-export default Navbar;
+export default CustomNavbar;
