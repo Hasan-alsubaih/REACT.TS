@@ -27,15 +27,15 @@ const CustomNavbar: React.FC = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav
             className="ms-auto d-flex align-items-center"
-            style={{ gap: "1rem", fontSize: "1.2rem", fontWeight: "bold" }}
+            style={{ gap: "0rem", fontSize: "1.2rem", fontWeight: "bold"  }}
           >
-            <NavLink className="nav-link" to="/" style={{ color: "black" }}>
+            <NavLink className="nav-link" to="/" style={{ color: "black", padding:"3px" }}>
               Home
             </NavLink>
             <NavLink
               className="nav-link"
               to="/countries"
-              style={{ color: "black" }}
+              style={{ color: "black", padding:"3px" }}
             >
               Countries
             </NavLink>
@@ -44,14 +44,14 @@ const CustomNavbar: React.FC = () => {
                 <NavLink
                   className="nav-link"
                   to="/login"
-                  style={{ color: "black" }}
+                  style={{ color: "black", padding:"3px" }}
                 >
                   Login
                 </NavLink>
                 <NavLink
                   className="nav-link"
                   to="/signup"
-                  style={{ color: "black" }}
+                  style={{ color: "black", padding:"3px" }}
                 >
                   Sign Up
                 </NavLink>
